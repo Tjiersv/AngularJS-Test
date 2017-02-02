@@ -1,5 +1,5 @@
 {
-  "name": "angular1",
+  "name": "workshop-angular1",
   "version": "1.0.0",
   "description": "aprendiendo angular, el framework mvc de google",
   "main": "index.js",
@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.16.0",
-    "express": "^4.14.1",
+    "express": "^4.14.1"
   }
 }
