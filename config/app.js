@@ -1,15 +1,17 @@
 'use strict'
 
-const express    = require('express')
+const express = require('express')
 const bodyParser = require('body-parser')
-const morgan     = require('morgan')
+const morgan = require('morgan')
 
 const app = express()
 
-
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
-app.use(morgan('dev'))
-app.use(express.static('public'))
+   .use(bodyParser.json())
+   .use(morgan('dev'))
+   .use(express.static('public'))
+   .get('/', (req, res) => {
+     res.sendFile('/public/ajax.html', {'root': './'})
+   })
 
 module.exports = app;
