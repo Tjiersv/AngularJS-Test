@@ -10,7 +10,19 @@
   <title>Hola Angular</title>
 </head>
 <body ng-controller="MyController">
-  <h1>{{"Hola," + nombre}}</h1>
+  <h1>{{"Bienvenido a " + titulo}}</h1>
+  <h2>Comentario</h2>
+  <input type="text" ng-model="nuevoComentario.mensaje">
+  <h2>Usuario</h2>
+  <input type="text" ng-model="nuevoComentario.usuario">
+  </br>
+  <button type="button" ng-click="agregarComentario()">Agregar Comentario</button>
+  <ul>
+    <li ng-repeat="comentario in comentarios">
+      {{comentario.mensaje}} -
+      {{comentario.usuario}}
+    </li>
+  </ul>
   <script type="text/javascript" src="/js/app.js"></script>
 </body>
 </html>
