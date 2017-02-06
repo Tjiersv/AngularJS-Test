@@ -11,6 +11,7 @@
 </head>
 <body ng-controller="AjaxController">
   <div class="container">
+    </br>
     <h1>Probando Ajax</h1>
     <ul>
       <li ng-repeat="data in datas">
@@ -18,6 +19,13 @@
         <p>{{data.body}}</p>
       </li>
     </ul>
+    </br>
+    <h1>Ingresar Nuevo Post</h1>
+    <label for="title">Title</label>
+    <input type="text" name="title" ng-model="newPost.title"><br>
+    <label for="body">Body</label>
+    <textarea name="body" ng-model="newPost.body" rows="8" cols="80"></textarea><br>
+    <button type="button" ng-click="addPost()" name="button">Añadir Post</button><br>
   </div>
   <script type="text/javascript" src="./js/ajax.js"></script>
 </body>
