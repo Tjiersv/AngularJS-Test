@@ -2,7 +2,19 @@
 
 const app = angular.module('ToDoList', ['LocalStorageModule'])
 
+app.filter('removeHtml', () => {
+  return (texto) => {
+    return String(texto).replace(/<[^>]+>/gm, '')
+  }
+})
+
 app.controller('ToDoController', ($scope, localStorageService) => {
+
+  $scope.mi_html = {}
+  $scope.frase = "Hola, Mi To-DO"
+  $scope.mi_html.title = "Hola, "
+  $scope.mi_html.body = "Mi To-Do"
+  $scope.costo = 2
 
   if (localStorageService.get("angular-todolist")) {
     $scope.todo = localStorageService.get("angular-todolist")
