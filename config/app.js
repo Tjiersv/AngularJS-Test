@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}))
    .use(morgan('dev'))
    .use(express.static('public'))
    .get('/', (req, res) => {
-     res.sendFile('/public/factories.html', {'root': './'})
+     res.sendFile('/public/services.html', {'root': './'})
    })
 
 module.exports = app;
