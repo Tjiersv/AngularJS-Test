@@ -1,39 +1,36 @@
 angular.module('MyTodo', ['LocalStorageModule'])
-  .factory('MyTodoService', (localStorageService) => {
+  .service('MyTodoService', (localStorageService) => {
 
-    var todoService = {}
-    todoService.key = "angular-todolist"
+    this.key = "angular-todolist"
 
-    if (localStorageService.get(todoService.key)) {
-      todoService.activities = localStorageService.get(todoService.key)
+    if (localStorageService.get(this.key)) {
+      this.activities = localStorageService.get(this.key)
     }else{
-      todoService.activities = [];
-    }
+      this.activities = [];
+    }this
 
-    todoService.add = (newActivity) => {
-      todoService.activities.push(newActivity)
-      todoService.updateLocalStorage()
+    this.add = (newActivity) => {
+      this.activities.push(newActivity)
+      this.updateLocalStorage()
     }
-    todoService.updateLocalStorage = () => {
-      localStorageService.set(todoService.key, todoService.activities)
+    this.updateLocalStorage = () => {
+      localStorageService.set(this.key, this.activities)
     }
-    todoService.clean = () => {
-      todoService.activities = []
-      todoService.updateLocalStorage()
-      return todoService.getAll()
+    this.clean = () => {
+      this.activities = []
+      this.updateLocalStorage()
+      return this.getAll()
     }
-    todoService.getAll = () => {
-      return todoService.activities;
+    this.getAll = () => {
+      return this.activities;
     }
-    todoService.removeItem = (item) => {
-      todoService.activities = todoService.activities.filter((activty) => {
+    this.removeItem = (item) => {
+      this.activities = this.activities.filter((activty) => {
         return activty != item
       })
-      todoService.updateLocalStorage()
-      return todoService.getAll()
+      this.updateLocalStorage()
+      return this.getAll()
     }
-
-    return todoService;
 
   })
   .controller('MyTodoController',($scope, MyTodoService) => {

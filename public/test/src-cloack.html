@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="customDirective" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <title>NG-Events NG-Class</title>
+</head>
+<body ng-controller="appCtrl">
+  <div class="container">
+    <ul>
+      <li ng-repeat="repo in repos">
+        <img ng-src="{{repo.owner.avatar_url}}">
+        <h1>{{repo.name}}</h1>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../js/src-cloack.js">
+
+  </script>
+</body>
+</html>
